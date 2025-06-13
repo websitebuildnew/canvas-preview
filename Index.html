@@ -1,1 +1,34 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Live Canvas Preview & Share</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1/themes/prism.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h2>Live Canvas Preview & Share</h2>
+    <span>Edit code below and see the canvas update in real time. Share your sketch with a link!</span>
+  </header>
+  <div id="controls">
+    <button id="shareBtn">Share</button>
+    <input type="text" id="shareLink" readonly placeholder="Shareable link will appear here">
+  </div>
+  <pre class="editor-container"><code id="editor" class="language-javascript" contenteditable="true" spellcheck="false">// Draw a bouncing ball
+ctx.clearRect(0,0,canvas.width,canvas.height);
+if(typeof x==='undefined'){x=50;y=50;dx=2;dy=2;}
+if(x<0||x>canvas.width)dx*=-1;
+if(y<0||y>canvas.height)dy*=-1;
+x+=dx;y+=dy;
+ctx.beginPath();
+ctx.arc(x,y,20,0,Math.PI*2);
+ctx.fillStyle='orange';
+ctx.fill();</code></pre>
+  <canvas id="canvas" width="320" height="240"></canvas>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/prism.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-javascript.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
